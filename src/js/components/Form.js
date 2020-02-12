@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { hot } from 'react-hot-loader/root';
+import React from 'react';
 
 var BEST_JS_LIBS = [
   { name: 'Backbone.js', url: 'http://backbonejs.org/' },
@@ -19,7 +17,7 @@ var BEST_JS_LIBS = [
   { name: 'Koa', url: 'http://koajs.com/' }
 ];
 
-class Form extends Component {
+class Form extends React.Component {
   constructor() {
     super();
 
@@ -49,15 +47,14 @@ class Form extends Component {
             <li key={lib.name}>
               <a href={lib.url} target="_blank">
                 {// 'Such ' +
-                lib.name + ' test here'}
+                lib.name + ''}
               </a>
             </li>
           ))}
         </ul>
 
-        <h1>hello sasdasd world</h1>
-        <h1>hello sasdasd world</h1>
-        <h1>hello saasdaasdsssdasd world</h1>
+        <h1>hello world</h1>
+        <h1>hello world</h1>
         <form>
           <input
             type="text"
@@ -70,7 +67,5 @@ class Form extends Component {
   }
 }
 
-export default hot(Form);
-
-const wrapper = document.getElementById('container');
-wrapper ? ReactDOM.render(<Form />, wrapper) : false;
+let MyForm = Form;
+export { MyForm };
