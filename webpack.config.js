@@ -22,16 +22,44 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' }
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: { path: 'src/js/postcss.confвввig.js' }
+            }
+          }
         ]
       },
       {
         test: /\.scss$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: MiniCssExtractPlugin.loader },
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: { path: 'src/js/config/postcss.config.js' }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
         ]
       }
     ]
@@ -44,7 +72,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'vedro.css'
+      filename: 'test.css'
     })
   ]
 };
