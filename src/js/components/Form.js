@@ -1,4 +1,6 @@
 import React from 'react';
+import './../../css/Form.css';
+import './../../scss/main.scss';
 
 var BEST_JS_LIBS = [
   { name: 'Backbone.js', url: 'http://backbonejs.org/' },
@@ -53,8 +55,8 @@ class Form extends React.Component {
           ))}
         </ul>
 
-        <h1>hello world</h1>
-        <h1>hello world</h1>
+        <h1 className="vedro"> hello world</h1>
+        <h1 className="vedro2"> hello world</h1>
         <form>
           <input
             type="text"
