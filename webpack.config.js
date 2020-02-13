@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 
 module.exports = env => {
   // console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
@@ -59,12 +60,16 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.(png|jpe?g|gif)$/i,
+          test: /\.(png|jpe?g|gif|ttf)$/i,
           use: [
             {
               loader: 'file-loader'
             }
           ]
+        },
+        {
+          test: /\.pug$/,
+          use: ['pug-loader']
         }
       ]
     },
@@ -81,7 +86,12 @@ module.exports = env => {
 
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV)
-      })
+      }),
+      new HtmlWebPackPlugin({
+        template: 'src/views/test.pug',
+        filename: 'output.pug'
+      }),
+      new HtmlWebpackPugPlugin()
     ]
   };
 };
