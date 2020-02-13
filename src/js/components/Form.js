@@ -42,6 +42,8 @@ class Form extends React.Component {
   render() {
     var libs = BEST_JS_LIBS;
 
+    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
+
     return (
       <div>
         <ul>
